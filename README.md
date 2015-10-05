@@ -1,7 +1,5 @@
 #robjectory
 
-Read-Only-oBJECT-registORY
-
 A global registry to handle configs and flags
 
 ##Description
