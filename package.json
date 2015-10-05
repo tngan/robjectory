@@ -1,0 +1,31 @@
+{
+  "name": "robjectory",
+  "version": "1.0.0",
+  "description": "A global registry to handle configs and flags",
+  "main": "index.js",
+  "keywords": [
+    "robjectory",
+    "mutable",
+    "immutable"
+  ],
+  "scripts": {
+    "test": "mocha ./test/index.js"
+  },
+  "contributors": [
+    "Tony Ngan <tonynwk919@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tngan/robjectory.git"
+  },
+  "author": "tngan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tngan/robjectory/issues"
+  },
+  "homepage": "https://github.com/tngan/robjectory#readme",
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "should": "^7.1.0"
+  }
+}
