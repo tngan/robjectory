@@ -111,7 +111,7 @@ robjectory.findKeyName('flag');
 // FLAG
 robjectory.findKeyName('flAg');
 // FLAG
-robjectory.registry('tHiSiSmYkEy','value',{
+robjectory.register('tHiSiSmYkEy','value',{
     ignoreCapital: true
 });
 robjectory.findKeyName('thisismykey');
