@@ -39,10 +39,21 @@ var robjectory = function () {
         that = this,
         options = _applyDefault({
             ignoreCapital: false,
-            isMutable: false
+            isMutable: false,
+            isDual: false
         }, options || {});
         // case insensitive because they have same semantic meaning
         if (!this.hasKey(key)) {
+            // check isDual binding
+            if(options.isDual) {
+                if(this.hasKey(value)) {
+                    // if the dual key has already been used, terminate the registration
+                    return false;
+                } else {
+                    robjectoryList[_normalizeKeyName(value,options.ignoreCapital)] = key;
+                    robjectoryList.__proto__._assets[_normalizeKeyName(value)] = { options: options };
+                }
+            }
             // only execute the following when the key is not found
             robjectoryList[_normalizeKeyName(key,options.ignoreCapital)] = value;
             robjectoryList.__proto__._assets[_normalizeKeyName(key)] = { options: options };

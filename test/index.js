@@ -113,3 +113,26 @@ describe('Mutability test', function (done) {
         done();
     });
 });
+
+describe('Duality test', function (done) {
+    it('registers the dual', function (done) {
+        robjectory.register('duala','dualb',{isDual:true});
+        done();
+    });
+    it('check the duality', function (done) {
+        robjectory.hasKey('duala').should.be.equal(true);
+        robjectory.getValue('duala').should.be.equal('dualb');
+        robjectory.hasKey('dualb').should.be.equal(true);
+        robjectory.getValue('dualb').should.be.equal('duala');
+        done();
+    });
+    it('registers the dual that the key is already registered', function (done) {
+        robjectory.register('duala','dualb',{isDual:true}).should.be.equal(false);
+        done();
+    });
+    it('registers the dual that the value is already registered', function (done) {
+        robjectory.register('dualc','dualb',{isDual:true}).should.be.equal(false);
+        robjectory.hasKey('dualc').should.be.equal(false);
+        done();
+    });
+});

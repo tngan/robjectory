@@ -28,6 +28,7 @@ var robjectory = require('robjectory');
 
 + `options.ignoreCapital` is a boolean indicating the format of key, the written style of constants and global variables commonly uses UPPERCASE. Default is false.
 + `options.isMutable` is a boolean indicating the mutability of the key-value pair. Once the key is registered, the corresponding value cannot be modified if this boolean is set to false. Default is false.
++ `options.isDual` is a boolean indicating the duality of the key-value pair. It can be used to search the key by value and vice versa. The dual will follow the same mutability and name convention.
 
 ```javascript
 robjectory.register('flag');
