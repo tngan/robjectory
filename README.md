@@ -1,29 +1,33 @@
-#robjectory
+# robjectory
 
 A global registry to handle configs and flags
 
-##Description
+### Description
 Developers always declared placed the constants, flags and application configs in different files. Here we provide a global registry to handle them. Global variable is not an evil, in case you know what you are doing.
 
-##Priciples
-###Semantic key
+### Priciples
+**Semantic key**
+
 The key name of object literals in JavaScript is case sensitive. In this module, all key names in registry is case insensitive because intuitively it maintains the same semantic meaning.
-###Predictable mutability
+
+**Predictable mutability**
+
 Developers now clearly knows whether the global variables are immutable at the very beginning.
 
-##Get Started
+### Get Started
 ```bash
 $ npm install robjectory
 ```
 
-##API Reference
+### API Reference
 ```javascript
 var robjectory = require('robjectory');
 ```
 
-###robjectory.register (key, value, options)
-`key` is a string representing the name of key.
-`value` is optional indicating the value of the key. Default is the name of key.
+**robjectory.register (key, value, options)**
+
+`key` is a string representing the name of key.<br/>
+`value` is optional indicating the value of the key. Default is the name of key.<br/>
 `options` is an optional object for advanced configuration.
 
 + `options.ignoreCapital` is a boolean indicating the format of key, the written style of constants and global variables commonly uses UPPERCASE. Default is false.
@@ -44,7 +48,8 @@ robjectory.register('newFlag',{
 // the key is 'newFlag', just follow the input
 ```
 
-###robjectory.mutate (key, value)
+**robjectory.mutate (key, value)**
+
 It returns true after mutation. Return false if the value is immutable.
 
 `robjectory.mutate` is the only method that can mutate the value in the registered key-value pair. Mutable variables makes the application unpredictable. Let's imagine if the global configuration setting is changed in some file and cause conflict, it's hard to point out where it changes the value. That's why all key-value pair here is unique and immutable by default once the key is registered.
@@ -60,7 +65,8 @@ robjectory.mutate ('mutable','newValue');
 // true { MUTABLE: 'newValue' }
 ```
 
-###robjectory.isMutable (key)
+**robjectory.isMutable (key)**
+
 Check whether the value in a registered key-value pair is mutable.
 
 ```javascript
@@ -71,7 +77,8 @@ robjectory.isMutable ('mutable');
 // true
 ```
 
-###robjectory.hasKey (key)
+**robjectory.hasKey (key)**
+
 Check whether the key is registered.
 
 ```javascript
@@ -80,7 +87,8 @@ robjectory.hasKey('hasKeyTest');
 // true
 ```
 
-###robjectory.remove (key)
+**robjectory.remove (key)**
+
 It returns true if the key-value pair is successfully removed. Returns false indicating the non-exist key.
 
 ```javascript
@@ -92,7 +100,8 @@ robjectory.remove('flag');
 // false because the key-value pair is deleted in the last step
 ```
 
-###robjectory.getValue (key)
+**robjectory.getValue (key)**
+
 It returns the corresponding value. If the key is not registered, it returns undefined.
 
 ```javascript
@@ -103,7 +112,8 @@ robjectory.getValue('flag');
 // 'flag'
 ```
 
-###robjectory.findKeyName (key)
+**robjectory.findKeyName (key)**
+
 It returns the actual name of key used in object.
 
 ```javascript
@@ -119,10 +129,10 @@ robjectory.findKeyName('thisismykey');
 // tHiSiSmYkEy
 ```
 
-## License
+### License
 
 [MIT](LICENSE)
 
-## Copyright
+### Copyright
 
 Copyright (C) 2015 Tony Ngan, released under the MIT License.
